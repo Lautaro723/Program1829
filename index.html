@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<style>
+    *{
+        background-image: url("unionpng");
+    }
+   
+    .jugar{
+     width: 145px;
+     border-style:none;
+        background: blue;
+        color: cyan;
+        border-radius: 200px;
+         font-size:22px;
+    }
+    #resultado{
+
+        background: #fff;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.9);
+        width: auto;
+        height: auto;
+        
+    }
+    
+    .jugar:hover{
+    color: cyan; 
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);  
+       
+    }
+   h1{
+   font-size:42px;
+       text-align:center;
+       color: cyan;
+      
+   }
+   .color1{
+       color: #a6ff2a;
+       
+   }
+   .color2{
+       color: red;
+   }
+   .salir{
+       width: 303px;
+       border-style:none;
+
+   }
+   div{
+       
+       width: auto;
+   }
+   p{
+       padding: 10px;
+       color: black;
+       
+   }
+ 
+</style>
+    <title>Verdad o Reto</title>
+  </head>
+  <body >
+    <h1><span class="color1">Verdad</span> o <span class="color2">Reto</span></h1>
+    <div>
+      <button class="jugar" id="jugarBtn">Iniciar Jugar</button>     <button class="jugar" onclick="alert()">como jugar</button>
+      <div id="resultado"></div>
+    </div>
+    <script>
+      const preguntas = [
+        "¿Cuál es tu mayor miedo 😨😨? ",
+        "¿ Te sigue gustando 😍 tu ex ?",
+        "¿ cual es tu color favorito 🤔?",
+       
+        "¿Alguna vez has intentado hacer trampa en un examen?",
+    "¿Alguna vez has engañado a alguien cercano a ti?",
+    "¿Cuál ha sido la mentira más grande que has dicho?",
+    "¿Alguna vez has robado algo?",
+    "¿Cuál ha sido tu peor cita?",
+    "¿Cuál ha sido la cosa más vergonzosa que te ha pasado?",
+    "¿Alguna vez has dicho algo detrás de la espalda de alguien que no quisieras que se enterara?",
+    "¿Cuál ha sido tu mayor fracaso en la vida?",
+    "¿Alguna vez has tenido un flechazo con un amigo cercano?",
+    "¿Cuál ha sido el momento más embarazoso de tu vida?",
+    "¿Alguna vez has dicho te amo sin sentirlo?",
+    "¿Cuál ha sido la peor comida que has comido?",
+    "¿Alguna vez has tenido una cita doble con tu ex?",
+    "¿Cuál ha sido el peor regalo que has recibido?",
+    "¿Alguna vez has tenido una pelea física con alguien?"
+      ];
+
+      const retos = [
+       "¿ llama ala chica que te gusta y dile lo que sientes por ella 😍 ?",
+        "Llama a tu ex y dile que todavía lo/a quieres.",
+        "Haz una imitación de tu amigo/a más cercano/a.",
+  "Llama a un amigo y dile que lo quieres mucho",
+  "Baila en público por 30 segundos",
+  "Canta una canción en público",
+  "Haz una imitación de alguien famoso",
+  "Come algo picante sin tomar agua por 1 minuto",
+  "Ponte un hielo en la cabeza por 30 segundos",
+  "Haz 10 flexiones de brazos",
+  "Di un chiste malo",
+  "Haz una llamada telefónica con un acento extranjero",
+  "Haz una llamada a alguien y dile que eres su admirador secreto",
+  "Canta una canción de ópera",
+  "Haz una pose de yoga durante 30 segundos",
+  "Haz una llamada a un amigo y di que te perdiste en una ciudad que no conoces",
+  "Haz una llamada a un número aleatorio y canta una canción",
+  "Haz una llamada a un amigo y dile que has ganado la lotería",
+  "Come algo sin usar las manos",
+  "Haz una flexión de brazos con un dedo",
+  "Toma una bebida sin usar las manos",
+  "Haz una llamada y di que te han dejado plantado en el altar",
+  "Toma un trago de limón sin hacer cara",
+  "Haz una llamada y di que te han robado el carro",
+  "Haz una llamada a un amigo y dile que te han secuestrado",
+  "Ponte un huevo crudo en la cabeza",
+  "Haz una llamada y di que te han despedido del trabajo",
+  "Haz una llamada y di que has encontrado un tesoro enterrado",
+  "Haz una llamada a un amigo y di que eres un espía",
+  "Haz una llamada y di que has sido seleccionado para ir al espacio",      
+      ];
+
+      let preguntaActual = null;
+      let retoActual = null;
+
+      const jugarBtn = document.getElementById('jugarBtn');
+      const resultado = document.getElementById('resultado');
+
+      function mostrarPregunta() {
+        preguntaActual = preguntas[Math.floor(Math.random() * preguntas.length)];
+        while (preguntaActual === resultado.innerHTML) {
+          preguntaActual = preguntas[Math.floor(Math.random() * preguntas.length)];
+        }
+        resultado.innerHTML = `<p>${preguntaActual}</p>`;
+      }
+
+      function mostrarReto() {
+        retoActual = retos[Math.floor(Math.random() * retos.length)];{}
+        while (retoActual === resultado.innerHTML) {;
+          retoActual = retos[Math.floor(Math.random() * retos.length)];
+        }
+        resultado.innerHTML = `<p>${retoActual}</p>`;
+      }
+
+      jugarBtn.addEventListener('click', () => {
+        const opcion = Math.floor(Math.random() * 2) === 0 ? 'Verdad ' : 'Reto';
+        resultado.innerHTML = `<p>${opcion}</p><button class="salir" id='opcionBtn'> Generar  </button>`;
+      });
+
+      resultado.addEventListener('click', (event) => {
+        if (event.target.id === 'opcionBtn') {
+          const opcion = event.target.parentElement.firstChild.innerHTML;
+          if (opcion === 'Verdad') {
+            mostrarPregunta();
+          } else {
+            mostrarReto();
+          }
+        } else if (event.target.id === 'listoBtn') {
+          if (preguntaActual !== null) {
+            preguntas.splice(preguntas.indexOf(preguntaActual), 1);
+          } 
+        }
+      });
+      function alert() {
+      
+      swal({
+        title: "juegos program1829",
+        text: "Esta seccion no esta lista gracias por visitar mi pagina",
+       
+        
+      });
+      }
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+    
