@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
     *{
-        background-image: url("unionpng");
-    }
+        background-image: url("vor.jpg");
+        background-size: cover; /* hace que la imagen cubra todo el fondo */
+background-size: cover; /* hace que la imagen cubra todo el fondo */ background-position: center; /* hace que la imagen esté centrada en el fondo */ background-repeat: no-repeat; /* evita que se repita la imagen */ background-attachment: fixed; /* fija la imagen en su posición para evitar desplazamientos */ }
+
+    
    
     .jugar{
      width: 145px;
@@ -28,7 +31,7 @@
     
     .jugar:hover{
     color: cyan; 
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);  
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);  
        
     }
    h1{
@@ -47,25 +50,52 @@
    .salir{
        width: 303px;
        border-style:none;
+       background: #eaeaff;
 
    }
    div{
-       
+       text-align:center;
        width: auto;
    }
    p{
        padding: 10px;
        color: black;
-       
+       background: #fff;
    }
- 
+ .ramdon{
+   text-align: left;
+ }
+
+  .custom-popup-class {
+      background-color: #fff !important;
+      color: red !important;
+      background: blue;
+    }
+
+    .swal2-confirm {
+      background-color: red !important;
+      color: white !important;
+      background: blue;
+    }
+
+    .swal2-title {
+      color: red !important;
+      background:#fff;
+    }
+
+    .swal2-html-container {
+      color: red !important;
+      background: #fff;
+    }
+    
+    )
 </style>
     <title>Verdad o Reto</title>
   </head>
   <body >
     <h1><span class="color1">Verdad</span> o <span class="color2">Reto</span></h1>
     <div>
-      <button class="jugar" id="jugarBtn">Iniciar Jugar</button>     <button class="jugar" onclick="alert()">como jugar</button>
+      <button class="jugar" id="jugarBtn">Iniciar Jugar</button>     <button class="jugar" onclick="alert()">otros juegos</button>
       <div id="resultado"></div>
     </div>
     <script>
@@ -148,7 +178,7 @@
 
       jugarBtn.addEventListener('click', () => {
         const opcion = Math.floor(Math.random() * 2) === 0 ? 'Verdad ' : 'Reto';
-        resultado.innerHTML = `<p>${opcion}</p><button class="salir" id='opcionBtn'> Generar  </button>`;
+        resultado.innerHTML = `<p class="ramdon">${opcion}</p><button class="salir" id='opcionBtn'> Generar  </button>`;
       });
 
       resultado.addEventListener('click', (event) => {
@@ -166,32 +196,17 @@
         }
       });
       function alert() {
-      
-      swal({
-        title: "juegos program1829",
-        text: "Esta seccion no esta lista gracias por visitar mi pagina",
-       
-        
-      });
+   Swal.fire({
+      title: 'Juegos program1829',
+      text: 'Esta seccion no esta lista ¡Gracias por visitar mi sitio web!',
+     
+      customClass: {
+        popup: 'custom-popup-class'
+      }
+    });
+
       }
 
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-    
